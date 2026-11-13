@@ -177,6 +177,30 @@ h2.title{font-size:2rem;display:inline-block;padding-bottom:.4rem;margin-bottom:
 .logo{display:block;margin-bottom:1.25rem}
 .logo img{display:block;width:100%;height:auto;border-radius:10px}
 
+/* Page BTS SIO (cachée tant qu'on ne clique pas sur "En savoir plus") */
+.bts-view{display:none}
+body.bts-open .bts-view{display:block}
+body.bts-open main>section{display:none}
+.menu li.bts-nav{display:none}
+body.bts-open .menu li.bts-nav{display:block}
+body.bts-open .home-sub{display:none}
+body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);font-weight:600;color:var(--accent-dark)}
+.bts-view>section{max-width:1150px;padding:3.5rem 3rem}
+.bts-heading{position:relative;text-align:center;font-size:clamp(1.9rem,4vw,2.8rem);color:var(--accent-dark);padding-bottom:1.1rem;margin-bottom:2rem}
+.bts-heading::after{content:"";position:absolute;left:0;bottom:0;width:100px;height:3px;background:var(--accent)}
+.bts-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.bts-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:2.2rem 2rem}
+.bts-card svg{width:3.2rem;height:3.2rem;fill:var(--accent-dark);margin-bottom:1.6rem}
+.bts-card h3{font-size:1.2rem;margin-bottom:1rem}
+.bts-card p{color:var(--text);opacity:.9}
+.option-cards{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.option-card{position:relative}
+.option-card.chosen{border:2px solid var(--accent)}
+.option-head{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.option-head svg{width:2.6rem;height:2.6rem;margin:0}
+.option-head h3{flex:1;margin:0;font-size:1.35rem}
+.option-badge{padding:.3rem .9rem;border-radius:20px;background:var(--accent);color:#06202a;font-size:.8rem;font-weight:700;white-space:nowrap}
+
 /* ============ MOBILE ============ */
 @media(max-width:800px){
   .sidebar{position:sticky;top:0;bottom:auto;width:100%;flex-direction:row;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;padding:.7rem 1rem;border-right:0;border-bottom:1px solid var(--border)}
@@ -187,6 +211,8 @@ h2.title{font-size:2rem;display:inline-block;padding-bottom:.4rem;margin-bottom:
   .menu .sub{margin:0;border:0;display:flex;flex-wrap:wrap}
   .menu a{padding:.35rem .6rem;font-size:.85rem}
   .menu .sub a{font-size:.85rem}
+  body.bts-open .menu li.bts-nav{display:flex}
+  .bts-view>section{padding:2.5rem 1.25rem}
   .side-bottom{margin:0}
   .theme-btn{width:auto}.theme-btn span:last-child{display:none}
   main{margin-left:0}
@@ -210,9 +236,18 @@ h2.title{font-size:2rem;display:inline-block;padding-bottom:.4rem;margin-bottom:
   <ul class="menu">
     <li>
       <a href="#accueil" class="active">Accueil</a>
-      <ul class="sub">
+      <ul class="sub home-sub">
         <li><a href="#profil">Profil</a></li>
         <li><a href="#parcours">Parcours</a></li>
+      </ul>
+    </li>
+    <li class="bts-nav">
+      <a href="#bts-sio" class="bts-parent">BTS SIO</a>
+      <ul class="sub">
+        <li><a href="#bts-presentation">Présentation</a></li>
+        <li><a href="#bts-options">Les différentes options</a></li>
+        <li><a href="#bts-blocs">Les différents blocs</a></li>
+        <li><a href="#bts-competences">Tableau des compétences</a></li>
       </ul>
     </li>
     <li><a href="#competences">Compétences</a></li>
@@ -284,8 +319,7 @@ h2.title{font-size:2rem;display:inline-block;padding-bottom:.4rem;margin-bottom:
               <p>BTS <span class="hl">Services Informatiques aux Organisations</span>, Option <span class="hl">Solutions d'Infrastructure, Systèmes et Réseaux</span>.</p>
               <p>Campus <span class="hl">MEWO</span>, Metz - Grand-Est</p>
               <p>Formation en cours...</p>
-              <!-- À MODIFIER PLUS TARD : remplace le # par le lien de la page "En savoir plus" -->
-              <a href="#" class="timeline-btn">En savoir plus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+              <a href="#bts-sio" class="timeline-btn">En savoir plus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
             </div>
           </div>
 
@@ -495,6 +529,57 @@ h2.title{font-size:2rem;display:inline-block;padding-bottom:.4rem;margin-bottom:
     </div>
   </section>
 
+  <!-- ============ PAGE "BTS SIO" (cachée, s'ouvre avec le bouton "En savoir plus") ============ -->
+  <div id="bts-sio" class="bts-view">
+
+    <section id="bts-presentation">
+      <h2 class="bts-heading">Présentation du BTS SIO</h2>
+      <div class="bts-cards">
+        <div class="bts-card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+          <h3>Formation en 2 ans</h3>
+          <p>Le BTS Services Informatiques aux Organisations forme des professionnels capables de répondre aux besoins informatiques des organisations.</p>
+        </div>
+        <div class="bts-card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 5a3 3 0 1 0-4 2.82V9c0 1.1-.9 2-2 2H9c-.7 0-1.37.13-2 .35V7.82a3 3 0 1 0-2 0v8.36a3 3 0 1 0 2 0V15c0-1.1.9-2 2-2h6c2.2 0 4-1.8 4-4V7.82A3 3 0 0 0 21 5z"/></svg>
+          <h3>Deux spécialités</h3>
+          <p>SLAM (Solutions Logicielles et Applications Métiers) et SISR (Solutions d'Infrastructure, Systèmes et Réseaux).</p>
+        </div>
+        <div class="bts-card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10-2h4v2h-4V4z"/></svg>
+          <h3>Stage en entreprise</h3>
+          <p>10 semaines de stage réparties sur les deux années pour une expérience professionnelle concrète.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="bts-options">
+      <h2 class="bts-heading">Les options du BTS SIO</h2>
+      <div class="bts-cards option-cards">
+        <!-- À REMPLACER : texte provisoire, à remplacer par le texte voulu -->
+        <div class="bts-card option-card">
+          <div class="option-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg><h3>Option SLAM</h3></div>
+          <p>Solutions Logicielles et Applications Métiers : conception, développement et maintenance d'applications.</p>
+        </div>
+        <div class="bts-card option-card chosen">
+          <div class="option-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 22h8v-7h-3v-4h-5V9h3V2H8v7h3v2H6v4H3v7h8v-7H8v-2h8v2h-3z"/></svg><h3>Option SISR</h3><span class="option-badge">Option choisie</span></div>
+          <p>Solutions d'Infrastructure, Systèmes et Réseaux : installation, administration et sécurisation des infrastructures, des systèmes et des réseaux.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="bts-blocs">
+      <h2 class="bts-heading">Les différents blocs</h2>
+      <!-- À COMPLÉTER -->
+    </section>
+
+    <section id="bts-competences">
+      <h2 class="bts-heading">Tableau des compétences</h2>
+      <!-- À COMPLÉTER -->
+    </section>
+
+  </div>
+
 </main>
 
 <script>
@@ -535,6 +620,18 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
   })
   .finally(function(){ btn.disabled = false; });
 });
+
+/* Page BTS SIO : s'ouvre avec #bts-..., se ferme avec n'importe quel autre lien du menu */
+var titreSite = document.title;
+function route(){
+  var h = location.hash, ouvert = h.indexOf('#bts') === 0;
+  document.body.classList.toggle('bts-open', ouvert);
+  document.title = ouvert ? 'Le BTS SIO | Théo MAZZALOVO - Etudiant en BTS SIO' : titreSite;
+  var cible = h.length > 1 ? document.getElementById(decodeURIComponent(h.slice(1))) : null;
+  if (cible) cible.scrollIntoView(); else window.scrollTo(0, 0);
+}
+window.addEventListener('hashchange', route);
+route();
 
 /* Lien du menu actif selon la section visible */
 var liens = document.querySelectorAll('.menu a');
