@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Théo MAZZALOVO - Portfolio BTS SIO SISR</title>
+  <meta name="author" content="Théo MAZZALOVO">
+  <meta name="description" content="Théo MAZZALOVO - étudiant en BTS SIO option SISR. Passionné de cybersécurité, alternant au sein du cabinet Sologest.">
+  <meta name="theme-color" content="#44ccee">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    /* Applique le thème avant l'affichage pour éviter un flash */
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    })();
+  </script>
+</head>
+<body>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <h2>Théo MAZZALOVO</h2>
+      <p>Etudiant en BTS SIO - Option SISR</p>
+    </div>
+
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#accueil" class="active">Accueil</a></li>
+        <li><a href="#profil">Profil</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Basculer entre le mode clair et le mode sombre">
+        <span class="theme-icon" aria-hidden="true"></span>
+        <span class="theme-label"></span>
+      </button>
+      <p>© Copyright 2026<br>Designed by Théo MAZZALOVO<br>Tous droits réservés</p>
+    </div>
+  </aside>
+
+  <main>
+    <section id="accueil" class="hero">
+      <p class="hero-kicker">Théo MAZZALOVO portfolio</p>
+      <h1>Théo MAZZALOVO</h1>
+      <p class="hero-role">Etudiant en BTS SIO - Option SISR</p>
+    </section>
+
+    <section id="profil" class="profil">
+      <h2>Profil</h2>
+
+      <div class="profil-text">
+        <p>Je suis étudiant en deuxième année de BTS Services Informatiques aux Organisations option SISR au campus MEWO à Metz.</p>
+        <p>Je suis captivé par le domaine de la cybersécurité.</p>
+      </div>
+
+      <div class="callout">
+        <p>Âgé de 23 ans, je suis étudiant en BTS SIO option SISR et alternant au sein du cabinet d'expertise comptable et d'audit Sologest, j'assiste la partie système d'information.</p>
+        <p>Afin de garantir le bon fonctionnement de l'infrastructure informatique et d'accompagner les utilisateurs au quotidien.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><span class="stat-number">+700</span><span class="stat-label">tickets résolus</span></div>
+        <div class="stat"><span class="stat-number">3</span><span class="stat-label">Projets réalisés</span></div>
+        <div class="stat"><span class="stat-number">1</span><span class="stat-label">Certification</span></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
