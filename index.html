@@ -133,12 +133,48 @@ h2.title{font-size:2rem;display:inline-block;padding-bottom:.4rem;margin-bottom:
 .skill-icon{width:2.4rem;height:2.4rem;fill:var(--accent-dark)}
 .skill-name{font-size:.95rem;font-weight:600}
 
+/* Projets */
+.projects-navigation{text-align:center;max-width:900px;margin:0 auto}
+.projects-navigation>h3{font-size:1.6rem;margin-bottom:.4rem}
+.projects-navigation>p{color:var(--muted);margin-bottom:2rem}
+.projects-buttons{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;text-align:left}
+.project-nav-btn{display:flex;align-items:center;gap:1rem;padding:1.25rem 1.4rem;background:var(--surface);border:1px solid var(--border);border-radius:14px;transition:transform .2s,border-color .2s}
+.project-nav-btn:hover{transform:translateY(-4px);border-color:var(--accent)}
+.btn-icon{flex:none;width:52px;height:52px;border-radius:12px;display:grid;place-items:center;background:var(--bg)}
+.btn-icon svg{width:26px;height:26px;fill:var(--accent-dark)}
+.btn-text{flex:1}
+.btn-title{display:block;font-weight:700;font-size:1.05rem}
+.btn-description{display:block;color:var(--muted);font-size:.9rem}
+.btn-arrow svg{width:20px;height:20px;fill:var(--accent-dark)}
+
+/* Contact */
+#contact{max-width:1150px}
+.contact-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem}
+.contact-info,.contact-form{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.75rem}
+.contact-info h3{font-size:1.3rem;margin-bottom:1.1rem}
+.contact-info p{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem}
+.contact-info p svg{flex:none;width:20px;height:20px;fill:var(--accent-dark)}
+.contact-social{display:flex;gap:.6rem;margin-top:1.25rem}
+.contact-social a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--bg);border:1px solid var(--border)}
+.contact-social a:hover{border-color:var(--accent)}
+.contact-social svg{width:18px;height:18px;fill:currentColor}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.contact-form input,.contact-form textarea{width:100%;padding:.8rem 1rem;font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:8px}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent);outline:2px solid var(--accent)}
+.contact-form textarea{min-height:150px;resize:vertical}
+.contact-form button{padding:.8rem 1.4rem;font:inherit;font-weight:700;color:#06202a;background:var(--accent);border:0;border-radius:8px;cursor:pointer}
+.contact-form button:hover{filter:brightness(1.08)}
+#formResponse{font-size:.9rem;color:var(--muted)}
+
 /* ============ MOBILE ============ */
 @media(max-width:800px){
   .sidebar{position:sticky;top:0;bottom:auto;width:100%;flex-direction:row;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;padding:.7rem 1rem;border-right:0;border-bottom:1px solid var(--border)}
-  .brand p,.copy,.socials,.menu .sub{display:none}
-  .menu{margin:0 0 0 auto;display:flex}
-  .menu li{list-style:none}
+  .brand p,.copy,.socials{display:none}
+  .menu{margin:0 0 0 auto;display:flex;flex-wrap:wrap;gap:.1rem}
+  .menu li{list-style:none;display:flex;flex-wrap:wrap}
+  .menu .sub{margin:0;border:0;display:flex;flex-wrap:wrap}
+  .menu a{padding:.35rem .6rem;font-size:.85rem}
+  .menu .sub a{font-size:.85rem}
   .side-bottom{margin:0}
   .theme-btn{width:auto}.theme-btn span:last-child{display:none}
   main{margin-left:0}
@@ -164,9 +200,13 @@ h2.title{font-size:2rem;display:inline-block;padding-bottom:.4rem;margin-bottom:
       <ul class="sub">
         <li><a href="#profil">Profil</a></li>
         <li><a href="#parcours">Parcours</a></li>
-        <li><a href="#competences">Compétences</a></li>
       </ul>
     </li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#veille">Veille</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 
   <div class="side-bottom">
@@ -376,6 +416,67 @@ h2.title{font-size:2rem;display:inline-block;padding-bottom:.4rem;margin-bottom:
     </div>
   </section>
 
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section id="certifications">
+    <h2 class="title">Certifications</h2>
+    <!-- À COMPLÉTER : les certifications seront ajoutées ici -->
+  </section>
+
+  <!-- ============ PROJETS ============ -->
+  <section id="projets">
+    <h2 class="title">Projets</h2>
+    <div class="projects-navigation">
+      <h3>Découvrez mes projets</h3>
+      <p>Explorez mes différentes réalisations classées par catégories</p>
+      <div class="projects-buttons">
+          <!-- À MODIFIER PLUS TARD : remplace href="#projets" par le lien de ta page de TP et de procédures -->
+          <a href="#projets" class="project-nav-btn">
+            <span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></span>
+            <span class="btn-text"><span class="btn-title">Projets Scolaires</span><span class="btn-description">Travaux réalisés pendant ma formation</span></span>
+            <span class="btn-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span>
+          </a>
+          <!-- À MODIFIER PLUS TARD : remplace href="#projets" par le lien de ta page de procédures professionnelles -->
+          <a href="#projets" class="project-nav-btn">
+            <span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10-2h4v2h-4V4z"/></svg></span>
+            <span class="btn-text"><span class="btn-title">Projets Professionnels</span><span class="btn-description">Projets réalisés en entreprise</span></span>
+            <span class="btn-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span>
+          </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VEILLE ============ -->
+  <section id="veille">
+    <h2 class="title">Veille</h2>
+    <!-- À COMPLÉTER : le contenu de la veille sera ajouté ici -->
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <h2 class="title">Contact</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Mes coordonnées</h3>
+        <!-- À REMPLACER : ton e-mail, ton téléphone et ta localisation -->
+        <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> ton.email@exemple.fr</p>
+        <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> +33 6 00 00 00 00</p>
+        <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Metz - Grand-Est</p>
+        <div class="contact-social">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM3 9h3v12H3V9zm6 0h2.9v1.7c.5-.9 1.7-2 3.6-2 3.4 0 4 2.2 4 5.1V21h-3v-6.2c0-1.5 0-3.3-2-3.3s-2.4 1.5-2.4 3.2V21H9V9z"/></svg></a>
+          <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 6.84c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg></a>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <input type="text" name="name" placeholder="Nom" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit">Envoyer</button>
+        <div id="formResponse" role="status"></div>
+      </form>
+    </div>
+  </section>
+
 </main>
 
 <script>
@@ -389,6 +490,16 @@ document.getElementById('themeBtn').addEventListener('click', function(){
   maj();
 });
 maj();
+
+/* Formulaire de contact : ouvre la messagerie du visiteur (GitHub Pages n'a pas de serveur) */
+var MON_EMAIL = 'ton.email@exemple.fr'; /* À REMPLACER : la même adresse que dans "Mes coordonnées" */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var f = e.target;
+  var corps = f.message.value + '\n\n' + f.name.value + ' (' + f.email.value + ')';
+  location.href = 'mailto:' + MON_EMAIL + '?subject=' + encodeURIComponent('Message depuis le portfolio - ' + f.name.value) + '&body=' + encodeURIComponent(corps);
+  document.getElementById('formResponse').textContent = "Votre application de messagerie s'ouvre pour envoyer le message.";
+});
 
 /* Lien du menu actif selon la section visible */
 var liens = document.querySelectorAll('.menu a');
