@@ -201,6 +201,13 @@ body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);f
 .option-head h3{flex:1;margin:0;font-size:1.35rem}
 .option-badge{padding:.3rem .9rem;border-radius:20px;background:var(--accent);color:#06202a;font-size:.8rem;font-weight:700;white-space:nowrap}
 
+.blocs-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.bloc-card h3{font-size:1.25rem;margin-bottom:.8rem}
+.bloc-card h4{margin:1.2rem 0 .6rem;font-size:1rem;color:var(--accent-dark)}
+.bloc-list{list-style:none}
+.bloc-list li{position:relative;padding-left:1.6rem;margin-bottom:.5rem;font-size:.95rem}
+.bloc-list li::before{content:"\2713";position:absolute;left:0;color:var(--accent-dark);font-weight:700}
+
 /* ============ MOBILE ============ */
 @media(max-width:800px){
   .sidebar{position:sticky;top:0;bottom:auto;width:100%;flex-direction:row;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;padding:.7rem 1rem;border-right:0;border-bottom:1px solid var(--border)}
@@ -247,7 +254,6 @@ body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);f
         <li><a href="#bts-presentation">Présentation</a></li>
         <li><a href="#bts-options">Les différentes options</a></li>
         <li><a href="#bts-blocs">Les différents blocs</a></li>
-        <li><a href="#bts-competences">Tableau des compétences</a></li>
       </ul>
     </li>
     <li><a href="#competences">Compétences</a></li>
@@ -569,13 +575,49 @@ body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);f
     </section>
 
     <section id="bts-blocs">
-      <h2 class="bts-heading">Les différents blocs</h2>
-      <!-- À COMPLÉTER -->
-    </section>
-
-    <section id="bts-competences">
-      <h2 class="bts-heading">Tableau des compétences</h2>
-      <!-- À COMPLÉTER -->
+      <h2 class="bts-heading">Les blocs de compétences</h2>
+      <!-- À REMPLACER : les textes des blocs "Support" et "Cybersécurité" sont provisoires (référentiel officiel) -->
+      <div class="bts-cards blocs-grid">
+        <div class="bts-card bloc-card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3v1h-7v2h6c1.66 0 3-1.34 3-3V10c0-4.97-4.03-9-9-9z"/></svg>
+          <h3>Support et mise à disposition de services informatiques</h3>
+          <p>Bloc commun aux deux options : assistance aux utilisateurs, gestion du patrimoine informatique et mise à disposition de services.</p>
+          <h4>Compétences</h4>
+          <ul class="bloc-list">
+            <li>Gérer le patrimoine informatique</li>
+            <li>Répondre aux incidents et aux demandes d'assistance et d'évolution</li>
+            <li>Développer la présence en ligne de l'organisation</li>
+            <li>Travailler en mode projet</li>
+            <li>Mettre à disposition des utilisateurs un service informatique</li>
+            <li>Organiser son développement professionnel</li>
+          </ul>
+        </div>
+        <div class="bts-card bloc-card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 22h8v-7h-3v-4h-5V9h3V2H8v7h3v2H6v4H3v7h8v-7H8v-2h8v2h-3z"/></svg>
+          <h3>SISR - Conception et déploiement d'infrastructure réseaux</h3>
+          <p>Spécialisation dans la conception, l'installation, l'exploitation et la sécurisation des réseaux et des équipements informatiques.</p>
+          <h4>Compétences</h4>
+          <ul class="bloc-list">
+            <li>Conception et déploiement d'architectures réseaux.</li>
+            <li>Administration des serveurs et des services réseaux.</li>
+            <li>Virtualisation et gestion des environnements cloud.</li>
+            <li>Support et supervision des infrastructures.</li>
+          </ul>
+        </div>
+        <div class="bts-card bloc-card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          <h3>Cybersécurité des services informatiques</h3>
+          <p>Bloc commun aux deux options : protection des données et sécurisation des services informatiques.</p>
+          <h4>Compétences</h4>
+          <ul class="bloc-list">
+            <li>Protéger les données à caractère personnel</li>
+            <li>Préserver l'identité numérique de l'organisation</li>
+            <li>Sécuriser les équipements et les usages des utilisateurs</li>
+            <li>Garantir la disponibilité, l'intégrité et la confidentialité des services informatiques et des données de l'organisation face à des cyberattaques</li>
+            <li>Assurer la cybersécurité d'une infrastructure réseau, d'un système, d'une application</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
   </div>
