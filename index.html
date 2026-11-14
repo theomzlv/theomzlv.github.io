@@ -830,7 +830,30 @@ body.legal-open .legal-view{display:block}
     <section id="ps-gestion-parc" class="ps-cat">
       <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10V6c0-1.1-.9-2-2-2H4c-1.1 0-1.99.9-1.99 2v4c1.1 0 1.99.9 1.99 2s-.89 2-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c-1.1 0-2-.9-2-2s.9-2 2-2zm-9 7.5h-2v-2h2v2zm0-4.5h-2v-2h2v2zm0-4.5h-2v-2h2v2z"/></svg> Gestion de parc</h3>
       <div class="doc-grid">
-        <!-- Les documents de cette catégorie viennent ici (voir le modèle de carte en haut de la page) -->
+        <article class="doc-card" data-type="procedure">
+          <div class="doc-types"><span class="doc-type">Procédure</span></div>
+          <h4>Création d'une unité d'organisation et déploiement d'utilisateurs</h4>
+          <p>Organisation de l'annuaire Active Directory du domaine learn.local : création d'une unité d'organisation (Lyon), d'une sous-OU « L - Direction » et d'un compte utilisateur associé.</p>
+          <div class="doc-actions">
+          <a class="doc-btn" href="gestion-parc-procedure-unite-organisation-ad.pdf" target="_blank" rel="noopener">Voir la procédure (PDF)</a>
+          </div>
+        </article>
+        <article class="doc-card" data-type="procedure">
+          <div class="doc-types"><span class="doc-type">Procédure</span></div>
+          <h4>Création d'un utilisateur AD et ouverture de session sur un poste client</h4>
+          <p>Création d'un compte utilisateur sur le contrôleur de domaine (DC1), puis première connexion depuis un poste client Windows joint au domaine learn.local.</p>
+          <div class="doc-actions">
+          <a class="doc-btn" href="gestion-parc-procedure-utilisateur-ad-session-client.pdf" target="_blank" rel="noopener">Voir la procédure (PDF)</a>
+          </div>
+        </article>
+        <article class="doc-card" data-type="tp">
+          <div class="doc-types"><span class="doc-type">TP</span></div>
+          <h4>TP AGDLP - Gestion des droits d'accès</h4>
+          <p>Méthode AGDLP sous Windows Server 2025 : unités d'organisation, comptes, groupes globaux et domaine local, permissions NTFS, partage réseau et tests d'accès.</p>
+          <div class="doc-actions">
+          <a class="doc-btn" href="gestion-parc-tp-agdlp.pdf" target="_blank" rel="noopener">Voir le TP (PDF)</a>
+          </div>
+        </article>
       </div>
     </section>
 
