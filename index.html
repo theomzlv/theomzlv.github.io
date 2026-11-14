@@ -180,10 +180,10 @@ h2.title{font-size:2rem;display:inline-block;padding-bottom:.4rem;margin-bottom:
 /* Page BTS SIO (cachée tant qu'on ne clique pas sur "En savoir plus") */
 .bts-view{display:none}
 body.bts-open .bts-view{display:block}
-body.bts-open main>section,body.ps-open main>section{display:none}
+body.bts-open main>section,body.ps-open main>section,body.legal-open main>section{display:none}
 .menu li.bts-nav{display:none}
 body.bts-open .menu li.bts-nav{display:block}
-body.bts-open .home-sub,body.ps-open .home-sub{display:none}
+body.bts-open .home-sub,body.ps-open .home-sub,body.legal-open .home-sub{display:none}
 body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);font-weight:600;color:var(--accent-dark)}
 .bts-view>section{max-width:1150px;padding:3.5rem 3rem}
 .bts-heading{position:relative;text-align:center;font-size:clamp(1.9rem,4vw,2.8rem);color:var(--accent-dark);padding-bottom:1.1rem;margin-bottom:2rem}
@@ -279,6 +279,18 @@ main{position:relative;z-index:1}
 .doc-card .doc-btn.alt{border-color:rgba(245,158,11,.55);color:var(--orange-text)}
 .doc-card .doc-btn.alt:hover{background:var(--orange-border);border-color:var(--orange-border);color:#06202a}
 
+/* Mentions légales et CGU (page cachée) + pied de page */
+.legal-view{display:none}
+body.legal-open .legal-view{display:block}
+.legal-view>section{max-width:900px;padding:2.5rem 3rem}
+.legal-view h3{margin:1.8rem 0 .5rem;font-size:1.15rem;color:var(--accent-dark)}
+.legal-view p,.legal-view li{margin-bottom:.6rem}
+.legal-view ul{padding-left:1.4rem;margin-bottom:.6rem}
+.legal-view a{color:var(--accent-dark);text-decoration:underline}
+.legal-update{color:var(--muted);font-size:.85rem}
+.site-footer{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;padding:1.5rem 3rem 2.5rem;color:var(--muted);font-size:.85rem}
+.site-footer a:hover,.legal-links a:hover{color:var(--accent-dark);text-decoration:underline}
+.legal-links{margin-top:.5rem}
 /* ============ MOBILE ============ */
 @media(max-width:800px){
   .sidebar{position:sticky;top:0;bottom:auto;width:100%;flex-direction:row;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;padding:.7rem 1rem;border-right:0;border-bottom:1px solid var(--border)}
@@ -291,6 +303,8 @@ main{position:relative;z-index:1}
   .menu .sub a{font-size:.85rem}
   body.bts-open .menu li.bts-nav,body.ps-open .menu li.ps-nav{display:flex}
   .ps-view>section{padding:2rem 1.25rem}
+  .legal-view>section{padding:2rem 1.25rem}
+  .site-footer{padding:1.5rem 1.25rem 2rem}
   .bts-view>section{padding:2.5rem 1.25rem}
   .side-bottom{margin:0}
   .theme-btn{width:auto}.theme-btn span:last-child{display:none}
@@ -364,7 +378,7 @@ main{position:relative;z-index:1}
       <span class="dot" aria-hidden="true"></span><span id="themeLabel">Mode sombre</span>
     </button>
 
-    <p class="copy">© Copyright 2026<br>Designed by Théo MAZZALOVO<br>Tous droits réservés</p>
+    <p class="copy">© Copyright 2026<br>Designed by Théo MAZZALOVO<br>Tous droits réservés<br><span class="legal-links"><a href="#legal-mentions">Mentions légales</a> · <a href="#legal-cgu">CGU</a></span></p>
   </div>
 </aside>
 
@@ -829,6 +843,90 @@ main{position:relative;z-index:1}
 
   </div>
 
+  <!-- ============ MENTIONS LÉGALES ET CGU (page cachée, ouverte depuis le bandeau ou le pied de page) ============ -->
+  <div id="legal" class="legal-view">
+
+    <section id="legal-mentions">
+      <a href="#accueil" class="back-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg> Retour à l'accueil</a>
+      <h2 class="bts-heading">Mentions légales</h2>
+
+      <h3>Éditeur du site</h3>
+      <p>Ce site est un portfolio personnel, à but non commercial et pédagogique, présenté dans le cadre du BTS Services Informatiques aux Organisations (option SISR).</p>
+      <p>Éditeur et directeur de la publication : <strong>Théo MAZZALOVO</strong>, étudiant en BTS SIO option SISR.<br>
+      Contact : <a href="mailto:theomazzalovo9@gmail.com">theomazzalovo9@gmail.com</a></p>
+      <p>Le site étant édité à titre non professionnel, l'adresse postale de l'éditeur n'est pas publiée, conformément à la loi pour la confiance dans l'économie numérique (LCEN) du 21 juin 2004. Elle est tenue à disposition de l'hébergeur.</p>
+
+      <h3>Hébergeur</h3>
+      <p>Ce site est hébergé par GitHub Pages (pages.github.com) :<br>
+      GitHub, Inc.<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
+
+      <h3>Propriété intellectuelle</h3>
+      <p>Les textes, schémas, documents (procédures, TP, comptes rendus) et fichiers Packet Tracer présentés sur ce site sont des travaux réalisés par l'éditeur dans le cadre de sa formation. Certains s'appuient sur des énoncés ou des supports fournis par l'établissement de formation.</p>
+      <p>Les noms et logos Cisco, Packet Tracer, VMware, pfSense, OPNsense, GLPI, Microsoft Word, Excel et PowerPoint appartiennent à leurs propriétaires respectifs. Ils sont cités à titre informatif, sans lien commercial.</p>
+      <p>Toute reproduction ou réutilisation à des fins commerciales sans l'accord de l'éditeur est interdite.</p>
+
+      <h3>Données personnelles</h3>
+      <p>L'éditeur est responsable du traitement des données collectées sur ce site, conformément au Règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés.</p>
+      <ul>
+        <li><strong>Formulaire de contact :</strong> les informations saisies (nom, adresse e-mail, message) servent uniquement à répondre à votre demande. Elles sont transmises par e-mail à l'éditeur via le service FormSubmit (formsubmit.co) et conservées le temps nécessaire au traitement de votre demande.</li>
+        <li><strong>Coordonnées publiées :</strong> l'adresse e-mail et le numéro de téléphone affichés sur le site sont publiés volontairement par l'éditeur.</li>
+        <li><strong>Cookies et suivi :</strong> le site ne dépose aucun cookie publicitaire ni outil de mesure d'audience. Le navigateur enregistre seulement, en local, votre choix de thème clair ou sombre ; cette information reste sur votre appareil.</li>
+        <li><strong>Services tiers :</strong> la carte de la section Contact est fournie par OpenStreetMap, et l'hébergeur GitHub peut enregistrer des journaux de connexion (dont l'adresse IP). Ces services appliquent leur propre politique de confidentialité.</li>
+      </ul>
+      <p>Vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition concernant vos données. Pour l'exercer, écrivez à <a href="mailto:theomazzalovo9@gmail.com">theomazzalovo9@gmail.com</a>. En cas de difficulté, vous pouvez adresser une réclamation à la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).</p>
+
+      <h3>Responsabilité</h3>
+      <p>L'éditeur s'efforce de fournir des informations exactes, mais ne peut garantir l'absence d'erreur. Le site peut contenir des liens vers des sites externes dont l'éditeur n'est pas responsable.</p>
+
+      <h3>Droit applicable</h3>
+      <p>Le présent site est soumis au droit français.</p>
+      <p class="legal-update">Dernière mise à jour : 14 novembre 2026</p>
+    </section>
+
+    <section id="legal-cgu">
+      <h2 class="bts-heading">Conditions générales d'utilisation</h2>
+
+      <h3>1. Objet</h3>
+      <p>Les présentes conditions encadrent l'accès et l'utilisation du portfolio de Théo MAZZALOVO. En naviguant sur le site, vous les acceptez.</p>
+
+      <h3>2. Accès au site</h3>
+      <p>Le site est accessible gratuitement, sans inscription. Les frais de connexion et de matériel restent à la charge de l'utilisateur. L'éditeur peut modifier, suspendre ou interrompre le site à tout moment, sans préavis.</p>
+
+      <h3>3. Utilisation des contenus</h3>
+      <ul>
+        <li>La consultation et le téléchargement des documents (PDF, fichiers .pkt) sont autorisés pour un usage personnel ou pédagogique, avec mention de l'auteur.</li>
+        <li>Il est interdit de les revendre, de les utiliser à des fins commerciales ou de les présenter comme sa propre production.</li>
+        <li>Les documents sont des travaux d'étudiant réalisés dans un environnement de simulation. Les exemples de configuration (adresses IP, noms de réseau, mots de passe) sont fictifs et ne doivent pas être reproduits tels quels en production.</li>
+      </ul>
+
+      <h3>4. Comportement de l'utilisateur</h3>
+      <p>L'utilisateur s'engage à ne pas perturber le fonctionnement du site, à ne pas tenter d'y accéder de manière frauduleuse et à ne pas utiliser le formulaire de contact pour envoyer des contenus illicites, injurieux ou non sollicités (spam).</p>
+
+      <h3>5. Formulaire de contact</h3>
+      <p>Les messages sont transmis par e-mail à l'éditeur, qui y répond dans la mesure du possible, sans délai garanti. Le traitement des données saisies est décrit dans les mentions légales.</p>
+
+      <h3>6. Responsabilité</h3>
+      <p>Les contenus sont fournis à titre indicatif et en l'état, sans garantie d'exactitude ni d'exhaustivité. Les fichiers téléchargeables sont fournis sans garantie : l'utilisateur est invité à les vérifier avec son propre antivirus. L'éditeur ne peut être tenu responsable des dommages résultant de l'utilisation du site ou de sites tiers vers lesquels il renvoie.</p>
+
+      <h3>7. Données personnelles</h3>
+      <p>La collecte et le traitement des données personnelles sont décrits dans la rubrique « Données personnelles » des <a href="#legal-mentions">mentions légales</a>.</p>
+
+      <h3>8. Modification des conditions</h3>
+      <p>L'éditeur peut modifier les présentes conditions à tout moment. La version en ligne fait foi.</p>
+
+      <h3>9. Droit applicable</h3>
+      <p>Les présentes conditions sont régies par le droit français. En cas de litige, une solution amiable sera recherchée avant toute action.</p>
+      <p class="legal-update">Dernière mise à jour : 14 novembre 2026</p>
+    </section>
+
+  </div>
+
+  <footer class="site-footer">
+    <span>© 2026 Théo MAZZALOVO</span>
+    <a href="#legal-mentions">Mentions légales</a>
+    <a href="#legal-cgu">Conditions générales d'utilisation</a>
+  </footer>
+
 </main>
 
 <script>
@@ -873,11 +971,13 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
 /* Pages cachées : #bts... (présentation du BTS) et #ps... (projets scolaires). Tout autre lien du menu les referme. */
 var titreSite = document.title;
 function route(){
-  var h = location.hash, bts = h.indexOf('#bts') === 0, ps = h.indexOf('#ps') === 0;
+  var h = location.hash, bts = h.indexOf('#bts') === 0, ps = h.indexOf('#ps') === 0, lg = h.indexOf('#legal') === 0;
   document.body.classList.toggle('bts-open', bts);
   document.body.classList.toggle('ps-open', ps);
+  document.body.classList.toggle('legal-open', lg);
   document.title = bts ? 'Le BTS SIO | Théo MAZZALOVO - Etudiant en BTS SIO'
-                 : ps ? 'Projets scolaires | Théo MAZZALOVO - Etudiant en BTS SIO' : titreSite;
+                 : ps ? 'Projets scolaires | Théo MAZZALOVO - Etudiant en BTS SIO'
+                 : lg ? 'Mentions légales et CGU | Théo MAZZALOVO' : titreSite;
   var cible = h.length > 1 ? document.getElementById(decodeURIComponent(h.slice(1))) : null;
   if (cible) cible.scrollIntoView(); else window.scrollTo(0, 0);
 }
