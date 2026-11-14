@@ -249,6 +249,28 @@ body.ps-open .ps-parent{background:var(--bg);border-left-color:var(--accent);fon
 .doc-btn.alt{border-color:var(--border);color:var(--muted)}
 .doc-btn.alt:hover{background:var(--bg);border-color:var(--accent);color:var(--text)}
 .ps-note{text-align:center;color:var(--muted);font-size:.85rem;max-width:60ch;margin:1.1rem auto 0}
+/* Fond animé : formes qui flottent doucement derrière le contenu */
+.bg-shapes{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.bg-shapes span{position:absolute;display:block;will-change:transform}
+.bg-blob{border-radius:50%;filter:blur(70px);opacity:.28}
+[data-theme="light"] .bg-blob{opacity:.2}
+.b1{width:480px;height:480px;top:-120px;right:-100px;background:var(--accent);animation:drift1 26s ease-in-out infinite alternate}
+.b2{width:380px;height:380px;bottom:-90px;left:22%;background:var(--accent);animation:drift2 32s ease-in-out infinite alternate}
+.b3{width:320px;height:320px;top:38%;right:18%;background:var(--orange-border);opacity:.14;animation:drift3 38s ease-in-out infinite alternate}
+[data-theme="light"] .b3{opacity:.12}
+.bg-ring{border:2px solid var(--accent);border-radius:50%;opacity:.22}
+.r1{width:150px;height:150px;top:16%;left:34%;animation:drift2 24s ease-in-out infinite alternate}
+.r2{width:90px;height:90px;bottom:18%;right:10%;animation:drift1 20s ease-in-out infinite alternate}
+.bg-square{border:2px solid var(--orange-border);border-radius:14px;opacity:.2}
+.q1{width:70px;height:70px;top:62%;left:40%;animation:spin 40s linear infinite}
+.q2{width:46px;height:46px;top:10%;right:32%;animation:spin 30s linear infinite reverse}
+@keyframes drift1{from{transform:translate(0,0) rotate(0)}to{transform:translate(-70px,90px) rotate(25deg)}}
+@keyframes drift2{from{transform:translate(0,0) rotate(0)}to{transform:translate(90px,-60px) rotate(-20deg)}}
+@keyframes drift3{from{transform:translate(0,0) scale(1)}to{transform:translate(-60px,-80px) scale(1.25)}}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+main{position:relative;z-index:1}
+@media(prefers-reduced-motion:reduce){.bg-shapes span{animation:none!important}}
+
 /* ============ MOBILE ============ */
 @media(max-width:800px){
   .sidebar{position:sticky;top:0;bottom:auto;width:100%;flex-direction:row;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;padding:.7rem 1rem;border-right:0;border-bottom:1px solid var(--border)}
@@ -273,6 +295,13 @@ body.ps-open .ps-parent{background:var(--bg);border-left-color:var(--accent);fon
 </head>
 
 <body>
+
+<div class="bg-shapes" aria-hidden="true">
+  <span class="bg-blob b1"></span><span class="bg-blob b2"></span><span class="bg-blob b3"></span>
+  <span class="bg-ring r1"></span><span class="bg-ring r2"></span>
+  <span class="bg-square q1"></span><span class="bg-square q2"></span>
+</div>
+
 
 <!-- ============ BANDEAU DE GAUCHE ============ -->
 <aside class="sidebar">
