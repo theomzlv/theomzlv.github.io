@@ -180,10 +180,10 @@ h2.title{font-size:2rem;display:inline-block;padding-bottom:.4rem;margin-bottom:
 /* Page BTS SIO (cachée tant qu'on ne clique pas sur "En savoir plus") */
 .bts-view{display:none}
 body.bts-open .bts-view{display:block}
-body.bts-open main>section{display:none}
+body.bts-open main>section,body.ps-open main>section{display:none}
 .menu li.bts-nav{display:none}
 body.bts-open .menu li.bts-nav{display:block}
-body.bts-open .home-sub{display:none}
+body.bts-open .home-sub,body.ps-open .home-sub{display:none}
 body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);font-weight:600;color:var(--accent-dark)}
 .bts-view>section{max-width:1150px;padding:3.5rem 3rem}
 .bts-heading{position:relative;text-align:center;font-size:clamp(1.9rem,4vw,2.8rem);color:var(--accent-dark);padding-bottom:1.1rem;margin-bottom:2rem}
@@ -215,6 +215,34 @@ body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);f
 .cert-message+.cert-message{margin-top:1rem}
 .cert-message{max-width:68ch;padding:1.4rem 1.6rem;background:var(--surface);border:1px solid var(--border);border-left:5px solid var(--accent);border-radius:12px;font-size:1.1rem}
 
+.ps-view{display:none}
+body.ps-open .ps-view{display:block}
+.menu li.ps-nav{display:none}
+body.ps-open .menu li.ps-nav{display:block}
+body.ps-open .ps-parent{background:var(--bg);border-left-color:var(--accent);font-weight:600;color:var(--accent-dark)}
+.ps-view>section{max-width:1150px;padding:2.5rem 3rem}
+.ps-view>section#ps-top{padding-top:3.5rem}
+.back-link{display:inline-flex;align-items:center;gap:.5rem;margin-bottom:1.5rem;color:var(--muted);font-size:.95rem}
+.back-link:hover{color:var(--accent-dark)}
+.back-link svg{width:18px;height:18px;fill:currentColor}
+.ps-intro{text-align:center;color:var(--muted);max-width:60ch;margin:-.5rem auto 1.5rem}
+.doc-filters{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem}
+.doc-chip{padding:.45rem 1.1rem;border-radius:20px;border:1px solid var(--border);background:var(--surface);color:var(--text);font:inherit;font-size:.9rem;cursor:pointer}
+.doc-chip:hover{border-color:var(--accent)}
+.doc-chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#06202a;font-weight:700}
+.ps-cat>h3{display:flex;align-items:center;gap:.6rem;font-size:1.4rem;margin-bottom:1.1rem}
+.ps-cat>h3 svg{width:1.5rem;height:1.5rem;fill:var(--accent-dark)}
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.1rem}
+.doc-grid.vide::before{content:"Documents à venir";color:var(--muted);font-style:italic}
+.doc-card{display:flex;flex-direction:column;gap:.5rem;padding:1.3rem 1.4rem;background:var(--surface);border:1px solid var(--border);border-radius:14px;transition:transform .2s,border-color .2s}
+.doc-card[hidden]{display:none}
+.doc-card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.doc-type{align-self:flex-start;padding:.15rem .7rem;border-radius:20px;background:var(--accent);color:#06202a;font-size:.75rem;font-weight:700}
+.doc-card h4{font-size:1.05rem}
+.doc-card p{color:var(--muted);font-size:.92rem;flex:1}
+.doc-btn{align-self:flex-start;margin-top:.4rem;padding:.45rem 1rem;border:1px solid var(--accent);border-radius:8px;color:var(--accent-dark);font-size:.9rem;font-weight:600}
+.doc-btn:hover{background:var(--accent);color:#06202a}
+
 /* ============ MOBILE ============ */
 @media(max-width:800px){
   .sidebar{position:sticky;top:0;bottom:auto;width:100%;flex-direction:row;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;padding:.7rem 1rem;border-right:0;border-bottom:1px solid var(--border)}
@@ -225,7 +253,8 @@ body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);f
   .menu .sub{margin:0;border:0;display:flex;flex-wrap:wrap}
   .menu a{padding:.35rem .6rem;font-size:.85rem}
   .menu .sub a{font-size:.85rem}
-  body.bts-open .menu li.bts-nav{display:flex}
+  body.bts-open .menu li.bts-nav,body.ps-open .menu li.ps-nav{display:flex}
+  .ps-view>section{padding:2rem 1.25rem}
   .bts-view>section{padding:2.5rem 1.25rem}
   .side-bottom{margin:0}
   .theme-btn{width:auto}.theme-btn span:last-child{display:none}
@@ -266,6 +295,16 @@ body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);f
     <li><a href="#competences">Compétences</a></li>
     <li><a href="#certifications">Certifications</a></li>
     <li><a href="#projets">Projets</a></li>
+    <li class="ps-nav">
+      <a href="#ps" class="ps-parent">Projets scolaires</a>
+      <ul class="sub">
+        <li><a href="#ps-reseaux">Réseaux</a></li>
+        <li><a href="#ps-virtualisation">Virtualisation</a></li>
+        <li><a href="#ps-pare-feu">Pare-feu</a></li>
+        <li><a href="#ps-gestion-parc">Gestion de parc</a></li>
+        <li><a href="#ps-serveur-web">Serveur Web</a></li>
+      </ul>
+    </li>
     <li><a href="#veille">Veille</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -320,7 +359,6 @@ body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);f
   <section id="parcours">
     <h2 class="title">Parcours</h2>
     <p class="cv-actions"><a href="CV-Theo-MAZZALOVO.pdf" class="cv-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg> Voir mon CV</a></p>
-```[cite: 2, 3]
     <div class="parcours-container">
 
       <div class="parcours-column">
@@ -493,8 +531,7 @@ body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);f
       <h3>Découvrez mes projets</h3>
       <p>Explorez mes différentes réalisations classées par catégories</p>
       <div class="projects-buttons">
-          <!-- À MODIFIER PLUS TARD : remplace href="#projets" par le lien de ta page de TP et de procédures -->
-          <a href="#projets" class="project-nav-btn">
+          <a href="#ps" class="project-nav-btn">
             <span class="btn-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></span>
             <span class="btn-text"><span class="btn-title">Projets Scolaires</span><span class="btn-description">Travaux réalisés pendant ma formation</span></span>
             <span class="btn-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span>
@@ -633,6 +670,69 @@ body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);f
 
   </div>
 
+  <!-- ============ PAGE "PROJETS SCOLAIRES" (cachée, s'ouvre avec le bouton du même nom dans Projets) ============ -->
+  <div id="ps" class="ps-view">
+    <!--
+      MODÈLE DE CARTE (à copier-coller dans la bonne catégorie, une carte par document) :
+      data-type vaut "tp", "procedure" ou "cisco" (il sert au filtre) ; le texte du badge est libre.
+
+      <article class="doc-card" data-type="tp">
+        <span class="doc-type">TP</span>
+        <h4>Titre du document</h4>
+        <p>Courte description de ce qui a été réalisé.</p>
+        <a class="doc-btn" href="projets/nom-du-fichier.pdf" target="_blank" rel="noopener">Ouvrir le PDF</a>
+      </article>
+    -->
+
+    <section id="ps-top">
+      <a href="#projets" class="back-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg> Retour aux projets</a>
+      <h2 class="bts-heading">Projets scolaires</h2>
+      <p class="ps-intro">Mes TP, procédures et travaux Cisco réalisés pendant ma formation, classés par thème.</p>
+      <div class="doc-filters" role="group" aria-label="Filtrer par type de document">
+        <button type="button" class="doc-chip" data-filter="all" aria-pressed="true">Tous</button>
+        <button type="button" class="doc-chip" data-filter="tp" aria-pressed="false">TP</button>
+        <button type="button" class="doc-chip" data-filter="procedure" aria-pressed="false">Procédures</button>
+        <button type="button" class="doc-chip" data-filter="cisco" aria-pressed="false">Cisco</button>
+      </div>
+    </section>
+
+    <section id="ps-reseaux" class="ps-cat">
+      <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 22h8v-7h-3v-4h-5V9h3V2H8v7h3v2H6v4H3v7h8v-7H8v-2h8v2h-3z"/></svg> Réseaux</h3>
+      <div class="doc-grid">
+        <!-- Les documents de cette catégorie viennent ici (voir le modèle de carte en haut de la page) -->
+      </div>
+    </section>
+
+    <section id="ps-virtualisation" class="ps-cat">
+      <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z"/></svg> Virtualisation</h3>
+      <div class="doc-grid">
+        <!-- Les documents de cette catégorie viennent ici (voir le modèle de carte en haut de la page) -->
+      </div>
+    </section>
+
+    <section id="ps-pare-feu" class="ps-cat">
+      <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg> Pare-feu</h3>
+      <div class="doc-grid">
+        <!-- Les documents de cette catégorie viennent ici (voir le modèle de carte en haut de la page) -->
+      </div>
+    </section>
+
+    <section id="ps-gestion-parc" class="ps-cat">
+      <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10V6c0-1.1-.9-2-2-2H4c-1.1 0-1.99.9-1.99 2v4c1.1 0 1.99.9 1.99 2s-.89 2-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c-1.1 0-2-.9-2-2s.9-2 2-2zm-9 7.5h-2v-2h2v2zm0-4.5h-2v-2h2v2zm0-4.5h-2v-2h2v2z"/></svg> Gestion de parc</h3>
+      <div class="doc-grid">
+        <!-- Les documents de cette catégorie viennent ici (voir le modèle de carte en haut de la page) -->
+      </div>
+    </section>
+
+    <section id="ps-serveur-web" class="ps-cat">
+      <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zM7 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zM7 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg> Serveur Web</h3>
+      <div class="doc-grid">
+        <!-- Les documents de cette catégorie viennent ici (voir le modèle de carte en haut de la page) -->
+      </div>
+    </section>
+
+  </div>
+
 </main>
 
 <script>
@@ -674,17 +774,29 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
   .finally(function(){ btn.disabled = false; });
 });
 
-/* Page BTS SIO : s'ouvre avec #bts-..., se ferme avec n'importe quel autre lien du menu */
+/* Pages cachées : #bts... (présentation du BTS) et #ps... (projets scolaires). Tout autre lien du menu les referme. */
 var titreSite = document.title;
 function route(){
-  var h = location.hash, ouvert = h.indexOf('#bts') === 0;
-  document.body.classList.toggle('bts-open', ouvert);
-  document.title = ouvert ? 'Le BTS SIO | Théo MAZZALOVO - Etudiant en BTS SIO' : titreSite;
+  var h = location.hash, bts = h.indexOf('#bts') === 0, ps = h.indexOf('#ps') === 0;
+  document.body.classList.toggle('bts-open', bts);
+  document.body.classList.toggle('ps-open', ps);
+  document.title = bts ? 'Le BTS SIO | Théo MAZZALOVO - Etudiant en BTS SIO'
+                 : ps ? 'Projets scolaires | Théo MAZZALOVO - Etudiant en BTS SIO' : titreSite;
   var cible = h.length > 1 ? document.getElementById(decodeURIComponent(h.slice(1))) : null;
   if (cible) cible.scrollIntoView(); else window.scrollTo(0, 0);
 }
 window.addEventListener('hashchange', route);
 route();
+
+/* Projets scolaires : message "Documents à venir" si une catégorie est vide + filtre par type */
+document.querySelectorAll('.doc-grid').forEach(function(g){ if (!g.querySelector('.doc-card')) g.classList.add('vide'); });
+document.querySelectorAll('.doc-chip').forEach(function(chip){
+  chip.addEventListener('click', function(){
+    var f = chip.getAttribute('data-filter');
+    document.querySelectorAll('.doc-chip').forEach(function(c){ c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+    document.querySelectorAll('.doc-card').forEach(function(c){ c.hidden = !(f === 'all' || c.getAttribute('data-type') === f); });
+  });
+});
 
 /* Lien du menu actif selon la section visible */
 var liens = document.querySelectorAll('.menu a');
