@@ -271,6 +271,14 @@ body.ps-open .ps-parent{background:var(--bg);border-left-color:var(--accent);fon
 main{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){.bg-shapes span{animation:none!important}}
 
+/* Orange (celui du Parcours professionnel) : notes de Certifications et documents des Projets scolaires */
+.cert-message{background:var(--orange-bg);border-color:var(--orange-border);border-left-color:var(--orange-border);color:var(--orange-text)}
+.doc-card{--accent:var(--orange-border);--accent-dark:#b45309;background:var(--orange-bg);border-color:var(--orange-border);color:var(--orange-text)}
+:root[data-theme="dark"] .doc-card{--accent-dark:#f59e0b}
+.doc-card p{color:inherit;opacity:.85}
+.doc-card .doc-btn.alt{border-color:rgba(245,158,11,.55);color:var(--orange-text)}
+.doc-card .doc-btn.alt:hover{background:var(--orange-border);border-color:var(--orange-border);color:#06202a}
+
 /* ============ MOBILE ============ */
 @media(max-width:800px){
   .sidebar{position:sticky;top:0;bottom:auto;width:100%;flex-direction:row;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;padding:.7rem 1rem;border-right:0;border-bottom:1px solid var(--border)}
