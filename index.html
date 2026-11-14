@@ -208,6 +208,12 @@ body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);f
 .bloc-list li{position:relative;padding-left:1.6rem;margin-bottom:.5rem;font-size:.95rem}
 .bloc-list li::before{content:"\2713";position:absolute;left:0;color:var(--accent-dark);font-weight:700}
 
+.cv-actions{margin:-.5rem 0 2rem}
+.cv-btn{display:inline-flex;align-items:center;gap:.6rem;padding:.7rem 1.4rem;border-radius:10px;background:var(--accent);color:#06202a;font-weight:700;text-decoration:none;transition:transform .2s,filter .2s}
+.cv-btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.cv-btn svg{width:18px;height:18px;fill:currentColor}
+.cert-message{max-width:68ch;padding:1.4rem 1.6rem;background:var(--surface);border:1px solid var(--border);border-left:5px solid var(--accent);border-radius:12px;font-size:1.1rem}
+
 /* ============ MOBILE ============ */
 @media(max-width:800px){
   .sidebar{position:sticky;top:0;bottom:auto;width:100%;flex-direction:row;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;padding:.7rem 1rem;border-right:0;border-bottom:1px solid var(--border)}
@@ -312,6 +318,7 @@ body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);f
   <!-- ============ PARCOURS ============ -->
   <section id="parcours">
     <h2 class="title">Parcours</h2>
+    <p class="cv-actions"><a href="documents/CV-Theo-MAZZALOVO.pdf" class="cv-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg> Voir mon CV</a></p>
     <div class="parcours-container">
 
       <div class="parcours-column">
@@ -472,7 +479,8 @@ body.bts-open .bts-parent{background:var(--bg);border-left-color:var(--accent);f
   <!-- ============ CERTIFICATIONS ============ -->
   <section id="certifications">
     <h2 class="title">Certifications</h2>
-    <!-- À COMPLÉTER : les certifications seront ajoutées ici -->
+    <p class="cert-message">Certification PIX en cours - 597 points enregistrés dans les tests.</p>
+    <!-- Les autres certifications seront ajoutées ici -->
   </section>
 
   <!-- ============ PROJETS ============ -->
