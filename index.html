@@ -243,6 +243,12 @@ body.ps-open .ps-parent{background:var(--bg);border-left-color:var(--accent);fon
 .doc-btn{align-self:flex-start;margin-top:.4rem;padding:.45rem 1rem;border:1px solid var(--accent);border-radius:8px;color:var(--accent-dark);font-size:.9rem;font-weight:600}
 .doc-btn:hover{background:var(--accent);color:#06202a}
 
+.doc-types{display:flex;flex-wrap:wrap;gap:.4rem}
+.doc-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem}
+.doc-actions .doc-btn{margin-top:0}
+.doc-btn.alt{border-color:var(--border);color:var(--muted)}
+.doc-btn.alt:hover{background:var(--bg);border-color:var(--accent);color:var(--text)}
+.ps-note{text-align:center;color:var(--muted);font-size:.85rem;max-width:60ch;margin:1.1rem auto 0}
 /* ============ MOBILE ============ */
 @media(max-width:800px){
   .sidebar{position:sticky;top:0;bottom:auto;width:100%;flex-direction:row;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;padding:.7rem 1rem;border-right:0;border-bottom:1px solid var(--border)}
@@ -674,7 +680,7 @@ body.ps-open .ps-parent{background:var(--bg);border-left-color:var(--accent);fon
   <div id="ps" class="ps-view">
     <!--
       MODÈLE DE CARTE (à copier-coller dans la bonne catégorie, une carte par document) :
-      data-type vaut "tp", "procedure" ou "cisco" (il sert au filtre) ; le texte du badge est libre.
+      data-type contient "tp", "procedure" et/ou "cisco" séparés par des espaces (il sert au filtre) ; le texte du badge est libre.
 
       <article class="doc-card" data-type="tp">
         <span class="doc-type">TP</span>
@@ -694,12 +700,65 @@ body.ps-open .ps-parent{background:var(--bg);border-left-color:var(--accent);fon
         <button type="button" class="doc-chip" data-filter="procedure" aria-pressed="false">Procédures</button>
         <button type="button" class="doc-chip" data-filter="cisco" aria-pressed="false">Cisco</button>
       </div>
+      <p class="ps-note">Les PDF s'ouvrent directement dans le navigateur. Les fichiers .pkt se téléchargent et s'ouvrent avec Cisco Packet Tracer.</p>
     </section>
 
     <section id="ps-reseaux" class="ps-cat">
       <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 22h8v-7h-3v-4h-5V9h3V2H8v7h3v2H6v4H3v7h8v-7H8v-2h8v2h-3z"/></svg> Réseaux</h3>
       <div class="doc-grid">
-        <!-- Les documents de cette catégorie viennent ici (voir le modèle de carte en haut de la page) -->
+        <article class="doc-card" data-type="procedure tp cisco">
+          <div class="doc-types"><span class="doc-type">Procédure</span><span class="doc-type">TP</span></div>
+          <h4>Routage inter-VLAN avec Router-on-a-Stick</h4>
+          <p>Configuration d'un lien trunk 802.1Q entre un switch et un routeur, création des sous-interfaces dot1Q et test de la communication entre deux VLANs.</p>
+          <div class="doc-actions">
+          <a class="doc-btn" href="projets/reseaux-procedure-inter-vlan-router-on-a-stick.pdf" target="_blank" rel="noopener">Voir la procédure (PDF)</a>
+          <a class="doc-btn alt" href="projets/reseaux-tp-inter-vlan-router-on-a-stick.pkt" download>Fichier Packet Tracer (.pkt)</a>
+          </div>
+        </article>
+        <article class="doc-card" data-type="procedure tp cisco">
+          <div class="doc-types"><span class="doc-type">Procédure</span><span class="doc-type">TP</span></div>
+          <h4>Routage statique entre deux sites</h4>
+          <p>Mise en place de routes statiques entre deux sites reliés par un lien WAN, avec vérification par show ip route, ping et tracert.</p>
+          <div class="doc-actions">
+          <a class="doc-btn" href="projets/reseaux-procedure-routage-statique.pdf" target="_blank" rel="noopener">Voir la procédure (PDF)</a>
+          <a class="doc-btn alt" href="projets/reseaux-tp-routage-statique.pkt" download>Fichier Packet Tracer (.pkt)</a>
+          </div>
+        </article>
+        <article class="doc-card" data-type="procedure tp cisco">
+          <div class="doc-types"><span class="doc-type">Procédure</span><span class="doc-type">TP</span></div>
+          <h4>Service DHCP avec inter-VLAN</h4>
+          <p>Configuration d'un routeur en serveur DHCP pour plusieurs VLANs : exclusions d'adresses, pools par VLAN et vérification des baux.</p>
+          <div class="doc-actions">
+          <a class="doc-btn" href="projets/reseaux-procedure-dhcp-inter-vlan.pdf" target="_blank" rel="noopener">Voir la procédure (PDF)</a>
+          <a class="doc-btn alt" href="projets/reseaux-tp-dhcp-inter-vlan.pkt" download>Fichier Packet Tracer (.pkt)</a>
+          </div>
+        </article>
+        <article class="doc-card" data-type="tp cisco">
+          <div class="doc-types"><span class="doc-type">TP</span></div>
+          <h4>Mise en place d'un réseau d'entreprise</h4>
+          <p>Plan d'adressage, VLAN et VTP, router-on-a-stick, DHCP, point d'accès Wi-Fi, routage statique entre trois sites, DNS et pages web.</p>
+          <div class="doc-actions">
+          <a class="doc-btn" href="projets/reseaux-tp-reseau-entreprise.pdf" target="_blank" rel="noopener">Voir le TP (PDF)</a>
+          <a class="doc-btn alt" href="projets/reseaux-tp-reseau-entreprise.pkt" download>Fichier Packet Tracer (.pkt)</a>
+          </div>
+        </article>
+        <article class="doc-card" data-type="tp cisco">
+          <div class="doc-types"><span class="doc-type">TP</span></div>
+          <h4>Parc informatique BYFECT</h4>
+          <p>Conception d'un parc informatique pour un organisme de formation : liste des équipements, segmentation en réseau local et réseau externe, pare-feu et plan d'adressage.</p>
+          <div class="doc-actions">
+          <a class="doc-btn" href="projets/reseaux-parc-informatique-byfect.pdf" target="_blank" rel="noopener">Voir le document (PDF)</a>
+          <a class="doc-btn alt" href="projets/reseaux-parc-informatique-byfect.pkt" download>Fichier Packet Tracer (.pkt)</a>
+          </div>
+        </article>
+        <article class="doc-card" data-type="tp">
+          <div class="doc-types"><span class="doc-type">TP</span><span class="doc-type">Compte rendu</span></div>
+          <h4>Compte rendu - Réseau Campus</h4>
+          <p>Réseau d'école en routage dynamique OSPF : découpage VLSM de la zone atelier, router-on-a-stick, DHCP, commandes de configuration et tests de connectivité.</p>
+          <div class="doc-actions">
+          <a class="doc-btn" href="projets/reseaux-compte-rendu-reseau-campus.pdf" target="_blank" rel="noopener">Voir le compte rendu (PDF)</a>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -794,7 +853,7 @@ document.querySelectorAll('.doc-chip').forEach(function(chip){
   chip.addEventListener('click', function(){
     var f = chip.getAttribute('data-filter');
     document.querySelectorAll('.doc-chip').forEach(function(c){ c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
-    document.querySelectorAll('.doc-card').forEach(function(c){ c.hidden = !(f === 'all' || c.getAttribute('data-type') === f); });
+    document.querySelectorAll('.doc-card').forEach(function(c){ c.hidden = !(f === 'all' || (' ' + c.getAttribute('data-type') + ' ').indexOf(' ' + f + ' ') > -1); });
   });
 });
 
