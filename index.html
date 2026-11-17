@@ -249,25 +249,39 @@ body.ps-open .ps-parent{background:var(--bg);border-left-color:var(--accent);fon
 .doc-btn.alt{border-color:var(--border);color:var(--muted)}
 .doc-btn.alt:hover{background:var(--bg);border-color:var(--accent);color:var(--text)}
 .ps-note{text-align:center;color:var(--muted);font-size:.85rem;max-width:60ch;margin:1.1rem auto 0}
-/* Fond animé : formes qui flottent doucement derrière le contenu */
+/* Fond animé : formes qui flottent et tournent derrière le contenu */
 .bg-shapes{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
 .bg-shapes span{position:absolute;display:block;will-change:transform}
-.bg-blob{border-radius:50%;filter:blur(70px);opacity:.28}
-[data-theme="light"] .bg-blob{opacity:.2}
-.b1{width:480px;height:480px;top:-120px;right:-100px;background:var(--accent);animation:drift1 26s ease-in-out infinite alternate}
-.b2{width:380px;height:380px;bottom:-90px;left:22%;background:var(--accent);animation:drift2 32s ease-in-out infinite alternate}
-.b3{width:320px;height:320px;top:38%;right:18%;background:var(--orange-border);opacity:.14;animation:drift3 38s ease-in-out infinite alternate}
-[data-theme="light"] .b3{opacity:.12}
-.bg-ring{border:2px solid var(--accent);border-radius:50%;opacity:.22}
-.r1{width:150px;height:150px;top:16%;left:34%;animation:drift2 24s ease-in-out infinite alternate}
-.r2{width:90px;height:90px;bottom:18%;right:10%;animation:drift1 20s ease-in-out infinite alternate}
-.bg-square{border:2px solid var(--orange-border);border-radius:14px;opacity:.2}
-.q1{width:70px;height:70px;top:62%;left:40%;animation:spin 40s linear infinite}
-.q2{width:46px;height:46px;top:10%;right:32%;animation:spin 30s linear infinite reverse}
-@keyframes drift1{from{transform:translate(0,0) rotate(0)}to{transform:translate(-70px,90px) rotate(25deg)}}
-@keyframes drift2{from{transform:translate(0,0) rotate(0)}to{transform:translate(90px,-60px) rotate(-20deg)}}
-@keyframes drift3{from{transform:translate(0,0) scale(1)}to{transform:translate(-60px,-80px) scale(1.25)}}
+.bg-blob{border-radius:50%;filter:blur(70px);opacity:.3}
+[data-theme="light"] .bg-blob{opacity:.22}
+.b1{width:520px;height:520px;top:-140px;right:-120px;background:var(--accent);animation:dA 22s ease-in-out infinite alternate}
+.b2{width:420px;height:420px;bottom:-110px;left:20%;background:var(--accent);animation:dB 26s ease-in-out infinite alternate}
+.b3{width:360px;height:360px;top:36%;right:16%;background:var(--orange-border);opacity:.16;animation:dC 30s ease-in-out infinite alternate}
+[data-theme="light"] .b3{opacity:.14}
+.bg-ring{border:3px solid var(--accent);border-radius:50%;opacity:.38}
+.r1{width:190px;height:190px;top:12%;left:32%;animation:dB 18s ease-in-out infinite alternate}
+.r2{width:110px;height:110px;bottom:16%;right:9%;animation:dA 16s ease-in-out infinite alternate}
+.r3{width:70px;height:70px;top:58%;left:30%;animation:dC 14s ease-in-out infinite alternate}
+.bg-square{border:3px solid var(--orange-border);border-radius:16px;opacity:.34}
+.q1{width:90px;height:90px;top:64%;left:44%;animation:dD 24s ease-in-out infinite alternate}
+.q2{width:56px;height:56px;top:9%;right:30%;animation:spin 22s linear infinite reverse}
+.q3{width:40px;height:40px;bottom:10%;left:34%;animation:dD 18s ease-in-out infinite alternate-reverse}
+.bg-tri{background:var(--accent);opacity:.22;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.t1{width:90px;height:90px;top:28%;right:7%;animation:dD 20s ease-in-out infinite alternate}
+.t2{width:56px;height:56px;bottom:26%;left:46%;animation:spin 28s linear infinite}
+.bg-tri.t3{background:var(--orange-border);opacity:.2;width:64px;height:64px;top:48%;left:60%;animation:dA 17s ease-in-out infinite alternate}
+.bg-plus{width:38px;height:38px;opacity:.4;background:linear-gradient(var(--accent),var(--accent)) center/100% 3px no-repeat,linear-gradient(var(--accent),var(--accent)) center/3px 100% no-repeat}
+.p1{top:22%;left:56%;animation:spin 26s linear infinite}
+.p2{bottom:14%;right:24%;animation:dB 19s ease-in-out infinite alternate,pulse 6s ease-in-out infinite alternate}
+.bg-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);opacity:.45;animation:dE 12s ease-in-out infinite alternate}
+.bg-dot.o{background:var(--orange-border)}
+@keyframes dA{from{transform:translate(0,0) rotate(0)}to{transform:translate(-9vw,12vh) rotate(40deg)}}
+@keyframes dB{from{transform:translate(0,0) rotate(0)}to{transform:translate(10vw,-12vh) rotate(-35deg)}}
+@keyframes dC{from{transform:translate(0,0) scale(1)}to{transform:translate(-7vw,-14vh) scale(1.3)}}
+@keyframes dD{from{transform:translate(0,0) rotate(0)}to{transform:translate(6vw,9vh) rotate(180deg)}}
+@keyframes dE{from{transform:translate(0,0) scale(1)}to{transform:translate(4vw,-10vh) scale(1.7)}}
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes pulse{from{scale:.8}to{scale:1.3}}
 main{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){.bg-shapes span{animation:none!important}}
 
@@ -320,8 +334,13 @@ body.legal-open .legal-view{display:block}
 
 <div class="bg-shapes" aria-hidden="true">
   <span class="bg-blob b1"></span><span class="bg-blob b2"></span><span class="bg-blob b3"></span>
-  <span class="bg-ring r1"></span><span class="bg-ring r2"></span>
-  <span class="bg-square q1"></span><span class="bg-square q2"></span>
+  <span class="bg-ring r1"></span><span class="bg-ring r2"></span><span class="bg-ring r3"></span>
+  <span class="bg-square q1"></span><span class="bg-square q2"></span><span class="bg-square q3"></span>
+  <span class="bg-tri t1"></span><span class="bg-tri t2"></span><span class="bg-tri t3"></span>
+  <span class="bg-plus p1"></span><span class="bg-plus p2"></span>
+  <span class="bg-dot" style="top:18%;left:44%"></span><span class="bg-dot o" style="top:40%;left:26%;animation-duration:15s"></span>
+  <span class="bg-dot" style="top:72%;left:58%;animation-duration:10s"></span><span class="bg-dot o" style="top:82%;right:14%;animation-duration:13s"></span>
+  <span class="bg-dot" style="top:50%;right:34%;animation-duration:17s"></span><span class="bg-dot" style="top:6%;right:12%;animation-duration:11s"></span>
 </div>
 
 
@@ -406,7 +425,7 @@ body.legal-open .legal-view{display:block}
     </div>
 
     <div class="stats">
-      <div class="stat"><b>+700</b><span>tickets résolus</span></div>
+      <div class="stat"><b>+400</b><span>tickets résolus</span></div>
       <div class="stat"><b>3</b><span>Projets réalisés</span></div>
       <div class="stat"><b>1</b><span>Certification</span></div>
     </div>
@@ -644,7 +663,8 @@ body.legal-open .legal-view{display:block}
   <div id="bts-sio" class="bts-view">
 
     <section id="bts-presentation">
-      <h2 class="bts-heading">Présentation du BTS SIO</h2>
+      <a href="#parcours" class="back-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg> Retour au parcours</a>
+            <h2 class="bts-heading">Présentation du BTS SIO</h2>
       <div class="bts-cards">
         <div class="bts-card">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
