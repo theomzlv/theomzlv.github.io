@@ -85,10 +85,10 @@ section{padding:5rem 3rem;max-width:1000px}
 /* Accueil */
 .hero{min-height:100vh;max-width:none;display:flex;flex-direction:column;justify-content:center;
   background:linear-gradient(135deg,rgba(68,204,238,.16),transparent 55%)}
-.hero .small{color:var(--muted);margin-bottom:.8rem;animation:rise .7s both}
-.hero h1{font-size:clamp(2.6rem,7vw,5.2rem);line-height:1.05;letter-spacing:-.02em;animation:rise .7s .1s both}
-.hero .role{margin-top:1rem;font-size:1.4rem;font-weight:600;color:var(--accent-dark);animation:rise .7s .2s both}
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero .small{color:var(--muted);margin-bottom:.8rem;animation:heroRise .7s both}
+.hero h1{font-size:clamp(2.6rem,7vw,5.2rem);line-height:1.05;letter-spacing:-.02em;animation:heroRise .7s .1s both}
+.hero .role{margin-top:1rem;font-size:1.4rem;font-weight:600;color:var(--accent-dark);animation:heroRise .7s .2s both}
+@keyframes heroRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
 /* Titres de sections */
 h2.title{font-size:2rem;display:inline-block;padding-bottom:.4rem;margin-bottom:1.6rem;border-bottom:3px solid var(--accent)}
@@ -252,7 +252,7 @@ body.ps-open .ps-parent,body.pp-open .pp-parent{background:var(--bg);border-left
 /* Fond animé : halos bleus et orange, réseau interactif, icônes des compétences qui bougent vite */
 .bg-shapes{--c1:var(--accent);--c2:var(--orange-border);position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
 [data-theme="light"] .bg-shapes{--c1:var(--accent-dark);--c2:#d97706}
-.bg-ambient{position:absolute;inset:0;background:
+ .bg-ambient{position:absolute;inset:-8%;background-size:140% 140%;animation:ambientShift 24s ease-in-out infinite alternate;background:
   radial-gradient(48vw 44vh at 88% 8%,rgba(68,204,238,.30),transparent 70%),
   radial-gradient(44vw 42vh at 34% 100%,rgba(245,158,11,.24),transparent 70%),
   radial-gradient(38vw 36vh at 62% 52%,rgba(68,204,238,.16),transparent 70%),
@@ -261,7 +261,7 @@ body.ps-open .ps-parent,body.pp-open .pp-parent{background:var(--bg);border-left
   radial-gradient(48vw 44vh at 88% 8%,rgba(68,204,238,.22),transparent 70%),
   radial-gradient(44vw 42vh at 34% 100%,rgba(245,158,11,.16),transparent 70%),
   radial-gradient(38vw 36vh at 62% 52%,rgba(68,204,238,.10),transparent 70%),
-  radial-gradient(32vw 32vh at 100% 82%,rgba(245,158,11,.13),transparent 70%)}
+  radial-gradient(32vw 32vh at 100% 82%,rgba(245,158,11,.13),transparent 70%)}\n.bg-ambient{background-size:140% 140%;animation:ambientShift 24s ease-in-out infinite alternate}
 #bgNet{position:absolute;inset:0;width:100%;height:100%}
 .bg-shapes span,.bg-shapes svg{position:absolute;display:block}
 svg.bg-ico,.bg-sym{will-change:transform}
@@ -269,15 +269,15 @@ svg.bg-ico,.bg-sym{will-change:transform}
 [data-theme="light"] .bg-blob{opacity:.36}
 .bg-blob.or{background:radial-gradient(circle,var(--c2) 0,transparent 68%);opacity:.42}
 [data-theme="light"] .bg-blob.or{opacity:.3}
-.b1{width:600px;height:600px;top:-170px;right:-150px;animation:dA 14s ease-in-out infinite alternate}
-.b2{width:500px;height:500px;bottom:-160px;left:22%;animation:dB 16s ease-in-out infinite alternate}
-.b3{width:420px;height:420px;top:34%;left:42%;animation:dC 18s ease-in-out infinite alternate}
-.b4{width:460px;height:460px;top:58%;right:-130px;animation:dA 15s ease-in-out infinite alternate-reverse}
-.b5{width:400px;height:400px;top:-150px;left:38%;animation:dB 17s ease-in-out infinite alternate-reverse}
+.b1{width:600px;height:600px;top:-170px;right:-150px;animation:dA 13s ease-in-out infinite alternate}
+.b2{width:500px;height:500px;bottom:-160px;left:22%;animation:dB 15s ease-in-out infinite alternate}
+.b3{width:420px;height:420px;top:34%;left:42%;animation:dC 16s ease-in-out infinite alternate}
+.b4{width:460px;height:460px;top:58%;right:-130px;animation:dA 14s ease-in-out infinite alternate-reverse}
+.b5{width:400px;height:400px;top:-150px;left:38%;animation:dB 15s ease-in-out infinite alternate-reverse}
 .bg-ring{border:2px solid var(--c1);border-radius:50%;opacity:.4}
 .bg-ring.or{border-color:var(--c2)}
-.r1{width:170px;height:170px;top:12%;left:34%;animation:dB 11s ease-in-out infinite alternate}
-.r2{width:100px;height:100px;bottom:16%;right:9%;animation:dA 10s ease-in-out infinite alternate}
+.r1{width:170px;height:170px;top:12%;left:34%;animation:ringDrift 12s ease-in-out infinite alternate}
+.r2{width:100px;height:100px;bottom:16%;right:9%;animation:ringDrift 9s ease-in-out infinite alternate-reverse}
 .bg-ping{width:220px;height:220px;border:2px solid var(--c1);border-radius:50%;opacity:0;animation:ping 3.8s ease-out infinite}
 .g1{top:20%;left:46%}
 .g2{top:62%;right:12%;animation-delay:-3s;border-color:var(--c2)}
@@ -288,11 +288,13 @@ svg.bg-ico.f1{animation:fl1 13s ease-in-out infinite alternate}
 svg.bg-ico.f2{animation:fl2 15s ease-in-out infinite alternate}
 svg.bg-ico.f3{animation:fl3 12s ease-in-out infinite alternate}
 svg.bg-ico.f4{animation:fl4 17s ease-in-out infinite alternate}
-svg.bg-ico{animation-duration:14s !important}
-.bg-sym{animation-duration:16s !important}
-.bg-sym{bottom:-10vh;color:var(--c1);opacity:.5;font:700 1.5rem/1 ui-monospace,Consolas,"Courier New",monospace;white-space:nowrap;animation:rise 14s linear infinite}
+svg.bg-ico{animation-duration:19s !important}
+.bg-sym{animation-duration:18s !important}
+.bg-sym{bottom:-10vh;color:var(--c1);opacity:.5;font:700 1.5rem/1 ui-monospace,Consolas,"Courier New",monospace;white-space:nowrap;animation:symbolDrift 18s linear infinite}
 .bg-sym.or{color:var(--c2);opacity:.55}
-@keyframes ambientShift{from{background-position:0% 0%}to{background-position:100% 100%}}
+@keyframes ambientShift{0%{background-position:0% 0%}50%{background-position:100% 45%}100%{background-position:0% 100%}}
+@keyframes ringDrift{0%{transform:translate3d(0,0,0) rotate(0) scale(.92)}50%{transform:translate3d(5vw,-4vh,0) rotate(100deg) scale(1.12)}100%{transform:translate3d(-4vw,5vh,0) rotate(210deg) scale(.96)}}
+@keyframes symbolDrift{0%{transform:translate3d(0,0,0) rotate(-8deg);opacity:0}10%{opacity:.5}50%{transform:translate3d(4vw,-55vh,0) rotate(5deg)}90%{opacity:.5}100%{transform:translate3d(-3vw,-115vh,0) rotate(-8deg);opacity:0}}
 @keyframes dA{from{transform:translate(0,0) rotate(0)}to{transform:translate(-12vw,16vh) rotate(80deg)}}
 @keyframes dB{from{transform:translate(0,0) rotate(0)}to{transform:translate(14vw,-16vh) rotate(-70deg)}}
 @keyframes dC{from{transform:translate(0,0) scale(1)}to{transform:translate(-10vw,-18vh) scale(1.45)}}
@@ -301,10 +303,10 @@ svg.bg-ico{animation-duration:14s !important}
 @keyframes fl3{from{transform:translate(0,0) rotate(0) scale(.9)}to{transform:translate(22vw,30vh) rotate(25deg) scale(1.15)}}
 @keyframes fl4{from{transform:translate(0,0) rotate(-5deg) scale(1.1)}to{transform:translate(-26vw,-22vh) rotate(-35deg) scale(.9)}}
 @keyframes ping{0%{transform:scale(.1);opacity:.7}100%{transform:scale(1);opacity:0}}
-@keyframes rise{from{transform:translateY(0) rotate(-10deg)}to{transform:translateY(-122vh) rotate(14deg)}}
+@keyframes backgroundFloat{from{transform:translateY(0) rotate(-10deg)}to{transform:translateY(-122vh) rotate(14deg)}}
 main{position:relative;z-index:1}
 @media(max-width:800px){.bg-ring{display:none}svg.bg-ico.x{display:none}svg.bg-ico{width:42px;height:42px}}
-@media(prefers-reduced-motion:reduce){.bg-shapes span,.bg-shapes svg{animation:none!important}.bg-ping{display:none}}
+@media(prefers-reduced-motion:reduce){.hero *{animation:none!important}}
 
 /* Orange (celui du Parcours professionnel) : notes de Certifications et documents des Projets scolaires */
 .cert-message{background:var(--orange-bg);border-color:var(--orange-border);border-left-color:var(--orange-border);color:var(--orange-text)}
@@ -1261,15 +1263,14 @@ document.querySelectorAll('.doc-chip').forEach(function(chip){
       ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
     }
     ctx.globalAlpha = 1;
-    if (!rm) raf = requestAnimationFrame(dessiner);
+    raf = requestAnimationFrame(dessiner);
   }
   couleurs(); taille(); dessiner();
-  window.addEventListener('resize', function(){ taille(); if (rm) dessiner(); });
+  window.addEventListener('resize', function(){ taille(); });
   window.addEventListener('mousemove', function(e){ mx = e.clientX; my = e.clientY; }, {passive: true});
   document.addEventListener('mouseleave', function(){ mx = my = -9999; });
-  new MutationObserver(function(){ couleurs(); if (rm) dessiner(); }).observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
+  new MutationObserver(function(){ couleurs(); }).observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
   document.addEventListener('visibilitychange', function(){
-    if (rm) return;
     if (document.hidden) cancelAnimationFrame(raf); else raf = requestAnimationFrame(dessiner);
   });
 })();
